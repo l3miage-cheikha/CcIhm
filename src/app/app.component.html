@@ -1,0 +1,31 @@
+<h1>CL&IHM : CC 1</h1>
+
+<!-- Carte principale -->
+<div style="height: 300px; width: 300px;"
+     leaflet
+     [leafletOptions]="options"
+     [leafletLayers]="allLayers()"
+     (leafletClick)="onClick($event)">
+</div>
+
+<!-- Composant Commune (si une commune est sélectionnée) -->
+@if (data()?.commune; as C) {
+  <app-commune
+    [communeCarto]="C"
+    [couleur]="service.couleurCommune()" />
+}
+
+<!-- Composant Région (si une région est présente) -->
+@if (data()?.region; as R) {
+  <app-region
+    [regionCarto]="R"
+    [couleurs]="colors()"
+    (couleursChangees)="onColorsChanged($event)" />
+}
+
+<!-- Affichage des erreurs -->
+<footer>
+  @if (errorMsg(); as err) {
+    <pre class="error">{{ err }}</pre>
+  }
+</footer>

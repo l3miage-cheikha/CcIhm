@@ -1,0 +1,33 @@
+<h1>CL&IHM : CC 1</h1>
+
+<div style="height: 300px; width: 300px;"
+     leaflet
+     [leafletOptions] = "options"
+     [leafletLayers]  = "allLayers()"
+     >
+</div>
+
+<!-- Ajoutez le composant commune ici -->
+ @if (data()?.commune; as C)
+ {
+  <app-commune [communeCarto]="C" [couleur]="communeColor()"></app-commune>
+
+
+ }
+
+<!-- Ajoutez le composant région ici -->
+
+@if (data()?.region; as R)
+{
+<app-region [regionCarto]="R"
+            [couleurs]="colors()"
+            (couleursChangees)="onColorsChanged($event)"></app-region>
+}
+
+
+<!-- Ne pas modifier -->
+<footer>
+  @if (errorMsg(); as err) {
+    <pre class="error">{{ err }}</pre>
+  }
+</footer>

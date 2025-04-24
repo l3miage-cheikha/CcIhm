@@ -1,0 +1,36 @@
+:host {
+    display: grid;
+    grid-template-areas:
+    "t t"
+    "a b"
+    "a c"
+    "f f";
+    grid-template-rows: auto auto auto auto;
+    grid-template-columns: auto minmax(150px, 1fr);
+    gap: 5px;
+    
+    div[leaflet] {
+        border: solid black 1px;
+        grid-area: a;
+    }
+
+    h1 {
+        grid-area: t;
+    }
+
+    app-commune {
+        grid-area: b;
+    }
+
+    app-region {
+        grid-area: c;
+    }
+
+    footer {
+        grid-area: f;
+    }
+
+    .error {
+        background-color: #FF7777;
+    }
+}

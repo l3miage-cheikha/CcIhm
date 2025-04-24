@@ -1,0 +1,12 @@
+<h6>{{ regionCarto().data.nom }}</h6>
+
+@for (dep of regionCarto().departements; track $index; let i = $index) {
+  <ul>
+    <input
+      type="color"
+      [(ngModel)]="couleurs()[i]"
+      (ngModelChange)="changerCouleur(i, $event)"
+    >
+    <span>{{ dep.data.code }} - {{ dep.data.nom }}</span>
+  </ul>
+}

@@ -1,0 +1,13 @@
+<h6>{{regionCarto().data.nom}}</h6>
+
+@for (dep of regionCarto().departements; track $index; let i=$index) {
+  <ul>
+    <input 
+      #colorInput
+      type="color"
+      [value]="couleurs()[i] || couleurUtilisateur()"
+      (input)="update(colorInput.value, i)"
+    >
+    <span> {{dep.data.code}}-{{dep.data.nom}} </span>
+  </ul>
+}

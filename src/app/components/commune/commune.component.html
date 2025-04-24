@@ -1,0 +1,12 @@
+<!-- Compléter la carte -->
+<div class="name">{{communeCarto().data.nom}}
+    
+</div>
+
+<div style="height: 150px; width: 150px;"
+    leaflet
+    [leafletOptions]="state().options"
+    [leafletLayers]="state().layers"
+    [leafletCenter]="center()"
+    >
+</div>
